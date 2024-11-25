@@ -26,7 +26,7 @@ export class AuthApiService implements AuthAPI {
   }
 
   login(data: LoginUser): Observable<Res | never[]> {
-    const api = `${this.baseURL}${AuthEndpoint.LOGIN}`;
+    const api = `${AuthEndpoint.LOGIN}`;
     return this._http.post(api, data).pipe(
       map((res: any) => this._AuthAPIAdapter.adapt(res)),
       catchError((err) => of())
@@ -34,7 +34,7 @@ export class AuthApiService implements AuthAPI {
   }
 
   register(data: RegisterUser): Observable<Res | never[]> {
-    const api = `${this.baseURL}${AuthEndpoint.REGISTER}`;
+    const api = `${AuthEndpoint.REGISTER}`;
     return this._http.post(api, data).pipe(
       map((res: any) => this._AuthRegisterAPIAdapter.adapt(res)),
       catchError((err) => of())

@@ -1,4 +1,9 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import {
+  BrowserAnimationsModule,
+  NoopAnimationsModule,
+} from '@angular/platform-browser/animations';
 import { RouterOutlet } from '@angular/router';
 interface City {
   name: string;

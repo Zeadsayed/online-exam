@@ -1,0 +1,30 @@
+<div class="row shadow-sm">
+  <div class="col-md-6 p-0">
+    <div class="bg body">
+      <h1 class="fw-bold">Welcome to <br>
+        <span style="color: var(--main-color);">Elevate</span>
+      </h1>
+      <p class="my-3">Quidem autem voluptatibus qui quaerat aspernatur architecto natus</p>
+      <div class="d-flex justify-content-center my-8">
+        <img src="../../../../assets/images/Auth/bro.png" width="70%">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 p-0">
+    <div class="body">
+      <nav class="navbar bg-transparent mb-8">
+        <div class="container-fluid">
+          <div class="d-flex ms-auto align-items-center" role="search">
+            <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"
+              placeholder="Select a Language" />
+            <button class="btn active mx-4" type="submit">Sign In</button>
+            <button class="btn" type="submit">Register</button>
+          </div>
+        </div>
+      </nav>
+      <div class="mt-5">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
