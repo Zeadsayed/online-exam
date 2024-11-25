@@ -15,10 +15,13 @@
       <nav class="navbar bg-transparent mb-8">
         <div class="container-fluid">
           <div class="d-flex ms-auto align-items-center" role="search">
-            <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"
-              placeholder="Select a Language" />
-            <button class="btn active mx-4" type="submit">Sign In</button>
-            <button class="btn" type="submit">Register</button>
+            <p-splitButton label="Language" [model]="items" text />
+            <a routerLink="login" routerLinkActive="active" class="btn mx-3 text-decoration-none">
+              Sign In
+            </a>
+            <a routerLink="register" routerLinkActive="active" class="btn text-decoration-none">
+              Register
+            </a>
           </div>
         </div>
       </nav>

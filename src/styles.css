@@ -8,9 +8,7 @@
   --main-color: #4461f2;
 }
 
-ul,
-ol,
-li {
+ul {
   margin: 0;
   padding: 0;
 }

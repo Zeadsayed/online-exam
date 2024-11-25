@@ -31,10 +31,13 @@
   font-weight: 500;
 }
 
-.active {
+.active,
+.btn:active {
   border-radius: 15px;
   padding: 5px 20px;
   border-color: #e0e0e9;
+  font-weight: bold;
+  color: var(--main-color);
 }
 
 img {

@@ -1,21 +1,36 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
-import { DropdownModule } from 'primeng/dropdown';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { MenuItem } from 'primeng/api';
+import { ButtonModule } from 'primeng/button';
+import { SplitButtonModule } from 'primeng/splitbutton';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-auth',
   standalone: true,
-  imports: [RouterOutlet, DropdownModule, FormsModule],
+  imports: [
+    RouterOutlet,
+    SplitButtonModule,
+    FormsModule,
+    ButtonModule,
+    RouterLink,
+    RouterLinkActive,
+  ],
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.css',
 })
 export class AuthComponent {
-  cities: any;
+  items: MenuItem[];
 
-  selectedCity = 'English';
-
-  ngOnInit() {
-    this.cities = [{ name: 'English' }, { name: 'Arabic' }];
+  constructor() {
+    this.items = [
+      {
+        label: 'English',
+      },
+      {
+        label: 'Arabic',
+      },
+    ];
   }
 }
