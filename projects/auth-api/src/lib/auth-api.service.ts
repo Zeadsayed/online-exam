@@ -25,19 +25,32 @@ export class AuthApiService implements AuthAPI {
     this.baseURL = url;
   }
 
-  login(data: LoginUser): Observable<Res | never[]> {
+  login(data: LoginUser): Observable<Res> {
     const api = `${AuthEndpoint.LOGIN}`;
-    return this._http.post(api, data).pipe(
-      map((res: any) => this._AuthAPIAdapter.adapt(res)),
-      catchError((err) => of())
-    );
+    return this._http
+      .post(api, data)
+      .pipe(map((res: any) => this._AuthAPIAdapter.adapt(res)));
   }
 
-  register(data: RegisterUser): Observable<Res | never[]> {
+  register(data: RegisterUser): Observable<Res> {
     const api = `${AuthEndpoint.REGISTER}`;
-    return this._http.post(api, data).pipe(
-      map((res: any) => this._AuthRegisterAPIAdapter.adapt(res)),
-      catchError((err) => of())
-    );
+    return this._http
+      .post(api, data)
+      .pipe(map((res: any) => this._AuthRegisterAPIAdapter.adapt(res)));
+  }
+
+  forgotPassword(data: any): Observable<any> {
+    const api = `${AuthEndpoint.FORGOT_PASSWORD}`;
+    return this._http.post(api, data);
+  }
+
+  verify(data: any): Observable<any> {
+    const api = `${AuthEndpoint.VERIFY_CODE}`;
+    return this._http.post(api, data);
+  }
+
+  resetPassword(data: any): Observable<any> {
+    const api = `${AuthEndpoint.RESET_PASSWORD}`;
+    return this._http.put(api, data);
   }
 }

@@ -1,32 +1,50 @@
-<div class="row shadow-sm">
-  <div class="col-md-6 p-0">
-    <div class="bg body">
-      <h1 class="fw-bold">Welcome to <br>
-        <span style="color: var(--main-color);">Elevate</span>
-      </h1>
-      <p class="my-3">Quidem autem voluptatibus qui quaerat aspernatur architecto natus</p>
-      <div class="d-flex justify-content-center my-8">
-        <img src="../../../../assets/images/Auth/bro.png" width="70%">
+<div class="row">
+  <!-- Left section -->
+  <div class="bg col-md-6 d-none d-md-block p-0">
+    <div class="body">
+      <div>
+        <h1 class="fw-bold">Welcome to <br>
+          <span style="color: var(--main-color);">Elevate</span>
+        </h1>
+        <p class="my-3">Quidem autem voluptatibus qui quaerat aspernatur architecto natus</p>
       </div>
     </div>
+    <div class="d-flex justify-content-center mt-5">
+      <img src="../../../../assets/images/Auth/bro.png" width="70%">
+    </div>
   </div>
-  <div class="col-md-6 p-0">
-    <div class="body">
-      <nav class="navbar bg-transparent mb-8">
-        <div class="container-fluid">
-          <div class="d-flex ms-auto align-items-center" role="search">
-            <p-splitButton label="Language" [model]="items" text />
-            <a routerLink="login" routerLinkActive="active" class="btn mx-3 text-decoration-none">
-              Sign In
-            </a>
-            <a routerLink="register" routerLinkActive="active" class="btn text-decoration-none">
-              Register
-            </a>
-          </div>
+
+  <!-- right section -->
+  <div class="col-md-6 col-sm-12 p-0 d-flex flex-column">
+    <nav class="navbar bg-transparent px-3">
+      <div class="container-fluid">
+        <div class="d-flex ms-auto align-items-center" role="search">
+          <p-splitButton label="Language" [model]="items" text />
+          <a routerLink="login" routerLinkActive="active" class="btn mx-3 text-decoration-none">
+            Sign In
+          </a>
+          <a routerLink="register" routerLinkActive="active" class="btn text-decoration-none">
+            Register
+          </a>
         </div>
-      </nav>
-      <div class="mt-5">
+      </div>
+    </nav>
+
+    <div class="flex-grow-1 d-flex justify-content-center align-items-center">
+      <div class="w-75">
         <router-outlet></router-outlet>
+      </div>
+    </div>
+
+    <div class="bottom-sec mt-auto px-3">
+      <div class="separator">
+        <span>Or Continue with</span>
+      </div>
+      <div class="icons mt-5 d-flex align-items-center justify-content-center">
+        <i class="pi pi-google" style="font-size: 1.5rem"></i>
+        <i class="pi pi-twitter" style="font-size: 1.5rem ; color: #1877F2;"></i>
+        <i class="pi pi-facebook" style="font-size: 1.5rem ; color: #1877F2;"></i>
+        <i class="pi pi-apple" style="font-size: 1.5rem ;"></i>
       </div>
     </div>
   </div>

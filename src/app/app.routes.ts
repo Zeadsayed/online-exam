@@ -30,6 +30,32 @@ export const routes: Routes = [
             (c) => c.RegisterComponent
           ),
       },
+      {
+        path: 'forget-password',
+        loadComponent: () =>
+          import('./core/pages/forget-password/forget-password.component').then(
+            (c) => c.ForgetPasswordComponent
+          ),
+      },
+      {
+        path: 'verify',
+        loadComponent: () =>
+          import('./core/pages/verify/verify.component').then(
+            (c) => c.VerifyComponent
+          ),
+      },
+      {
+        path: 'reset-password',
+        loadComponent: () =>
+          import('./core/pages/set-password/set-password.component').then(
+            (c) => c.SetPasswordComponent
+          ),
+      },
     ],
+  },
+  {
+    path: 'home',
+    loadComponent: () =>
+      import('./core/pages/home/home.component').then((c) => c.HomeComponent),
   },
 ];

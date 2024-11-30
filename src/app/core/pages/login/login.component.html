@@ -1,12 +1,20 @@
-<form class=" mx-auto my-5" [formGroup]="loginForm">
-  <div class="form-floating">
-    <input type="email" class="form-control" id="email" formControlName="email">
-    <label for="email">Email</label>
+<p-toast />
+<form [formGroup]="loginForm">
+  <h3 class="mb-5 fw-bold">Sign In</h3>
+  <div class="group">
+    <input type="email" id="inputtext" pInputText class="w-100" formControlName="email"
+      [ngClass]="{'ng-invalid': f['email'].invalid && f['email'].touched, ' ng-dirty' : f['email'].dirty}"
+      placeholder="Enter Email">
+    <input type="password" pInputText class="w-100 mt-3" id="password" placeholder="Password"
+      [ngClass]="{'ng-invalid': f['password'].invalid && f['password'].touched, ' ng-dirty' : f['password'].dirty}"
+      formControlName="password">
   </div>
-  <div class="form-floating my-3">
-    <input type="password" class="form-control" id="password" formControlName="password">
-    <label for="password">Password</label>
+  <div class="mt-2 d-flex justify-content-end">
+    <a routerLink="/auth/forget-password" class="text-decoration-none">Reset Password ?</a>
   </div>
 
-  <app-main-btn [text]="'Login'" [type]="'submit'" (clickEmitter)="login()"></app-main-btn>
+  <div class="mt-5">
+    <app-main-btn [text]="'Sign In'" [isLoading]="isLoading" [classes]="'rounded-4 w-100'" [type]="'submit'"
+      (clickEmitter)="login()"></app-main-btn>
+  </div>
 </form>

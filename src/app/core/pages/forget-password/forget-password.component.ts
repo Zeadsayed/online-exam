@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import {
   FormControl,
@@ -9,28 +10,26 @@ import {
 import { AuthApiService } from 'auth-api';
 import { MessageService } from 'primeng/api';
 import { InputTextModule } from 'primeng/inputtext';
-import { MainBtnComponent } from '../../../shared/components/ui/main-btn/main-btn.component';
-import { Router, RouterLink } from '@angular/router';
 import { ToastModule } from 'primeng/toast';
-import { CommonModule } from '@angular/common';
+import { MainBtnComponent } from '../../../shared/components/ui/main-btn/main-btn.component';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-forget-password',
   standalone: true,
   imports: [
     FormsModule,
     ReactiveFormsModule,
     InputTextModule,
     MainBtnComponent,
-    RouterLink,
     ToastModule,
     CommonModule,
   ],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
+  templateUrl: './forget-password.component.html',
+  styleUrl: './forget-password.component.css',
   providers: [MessageService],
 })
-export class LoginComponent {
+export class ForgetPasswordComponent {
   private _AuthApiService = inject(AuthApiService);
   private _router = inject(Router);
 
@@ -40,28 +39,26 @@ export class LoginComponent {
   displayMessage(message: string) {
     this.messageService.add({
       severity: 'success',
-      detail: `Login ${message}`,
+      detail: `${message}`,
     });
   }
 
-  loginForm: FormGroup = new FormGroup({
+  forgetForm: FormGroup = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
-    password: new FormControl(null, [
-      Validators.required,
-      Validators.minLength(6),
-    ]),
   });
 
   get f() {
-    return this.loginForm.controls;
+    return this.forgetForm.controls;
   }
 
-  login() {
+  submit() {
     this.isLoading = true;
-    this._AuthApiService.login(this.loginForm.value).subscribe((res) => {
-      this.isLoading = false;
-      this.displayMessage(res.message);
-      this._router.navigate(['/home']);
-    });
+    this._AuthApiService
+      .forgotPassword(this.forgetForm.value)
+      .subscribe((res) => {
+        this.isLoading = false;
+        this.displayMessage(res.info);
+        this._router.navigate(['/auth/verify']);
+      });
   }
 }
