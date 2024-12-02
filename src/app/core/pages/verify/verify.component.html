@@ -1,17 +1,21 @@
 <p-toast />
 <form [formGroup]="verifyForm">
-    <h3 class="mb-5 fw-bold">Verify Code</h3>
-    <div class="group">
-        <input type="text" id="inputtext" pInputText class="w-100" formControlName="resetCode"
-            [ngClass]="{'ng-invalid': f['resetCode'].invalid && f['resetCode'].touched}" placeholder="Enter Code">
+  <h3 class="mb-5 fw-bold">Verify Code</h3>
+  <div class="group">
+    <input type="text" id="inputtext" pInputText class="w-100" formControlName="resetCode"
+      [ngClass]="{'ng-invalid ng-dirty': f['resetCode'].invalid && (f['resetCode'].touched || isSubmitted)}"
+      placeholder="Enter Code">
+    <div *ngIf="(f['resetCode'].touched || isSubmitted) && f['resetCode'].invalid" class="text-danger">
+      <small *ngIf="f['resetCode'].errors?.['required']" class="p-error block">Code is required.</small>
     </div>
+  </div>
 
-    <div class="mt-2 d-flex justify-content-end">
-        <span>Didn’t receive a code? <a routerLink="/auth/login" class="text-decoration-none">Resend</a></span>
-    </div>
+  <div class="mt-2 d-flex justify-content-end">
+    <span>Didn’t receive a code? <a routerLink="/auth/login" class="text-decoration-none">Resend</a></span>
+  </div>
 
-    <div class="mt-5">
-        <app-main-btn [text]="'Verify'" [isLoading]="isLoading" [classes]="'rounded-4 w-100'" [type]="'submit'"
-            (clickEmitter)="submit()"></app-main-btn>
-    </div>
+  <div class="mt-5">
+    <app-main-btn [text]="'Verify'" [isLoading]="isLoading" [classes]="'rounded-4 w-100'" [type]="'submit'"
+      (clickEmitter)="submit()"></app-main-btn>
+  </div>
 </form>

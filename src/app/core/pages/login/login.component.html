@@ -3,11 +3,21 @@
   <h3 class="mb-5 fw-bold">Sign In</h3>
   <div class="group">
     <input type="email" id="inputtext" pInputText class="w-100" formControlName="email"
-      [ngClass]="{'ng-invalid': f['email'].invalid && f['email'].touched, ' ng-dirty' : f['email'].dirty}"
+      [ngClass]="{'ng-invalid ng-dirty': f['email'].invalid && (f['email'].touched || isSubmitted )}"
       placeholder="Enter Email">
-    <input type="password" pInputText class="w-100 mt-3" id="password" placeholder="Password"
-      [ngClass]="{'ng-invalid': f['password'].invalid && f['password'].touched, ' ng-dirty' : f['password'].dirty}"
-      formControlName="password">
+    <div *ngIf="(f['email'].touched || isSubmitted) && f['email'].invalid" class="text-danger">
+      <small *ngIf="f['email'].errors?.['required']" class="p-error block">Email is required.</small>
+      <small *ngIf="f['email'].errors?.['email']" class="p-error block">Invalid email address.</small>
+    </div>
+
+    <div class="my-3">
+      <p-password formControlName="password" [feedback]="false" [toggleMask]="true" placeholder="Enter Password"
+        [ngClass]="{'ng-invalid ng-dirty': (f['password'].touched || isSubmitted) && f['password'].invalid}" />
+      <div *ngIf="(f['password'].touched || isSubmitted) && f['password'].invalid" class="text-danger">
+        <small *ngIf="f['password'].errors?.['required']" class="p-error block">password is required.</small>
+        <small *ngIf="f['password'].errors?.['password']" class="p-error block">Invalid Password address.</small>
+      </div>
+    </div>
   </div>
   <div class="mt-2 d-flex justify-content-end">
     <a routerLink="/auth/forget-password" class="text-decoration-none">Reset Password ?</a>

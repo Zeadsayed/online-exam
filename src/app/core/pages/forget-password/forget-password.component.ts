@@ -34,14 +34,8 @@ export class ForgetPasswordComponent {
   private _router = inject(Router);
 
   isLoading: boolean = false;
+  isSubmitted: boolean = false;
   constructor(private messageService: MessageService) {}
-
-  displayMessage(message: string) {
-    this.messageService.add({
-      severity: 'success',
-      detail: `${message}`,
-    });
-  }
 
   forgetForm: FormGroup = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
@@ -51,14 +45,45 @@ export class ForgetPasswordComponent {
     return this.forgetForm.controls;
   }
 
-  submit() {
-    this.isLoading = true;
-    this._AuthApiService
-      .forgotPassword(this.forgetForm.value)
-      .subscribe((res) => {
-        this.isLoading = false;
-        this.displayMessage(res.info);
-        this._router.navigate(['/auth/verify']);
+  displayAlert() {
+    this.messageService.add({
+      severity: 'info',
+      detail: `Please Fill Form`,
+    });
+  }
+
+  displayMessage(message: string, status: string) {
+    if (status == 'success') {
+      this.messageService.add({
+        severity: 'success',
+        detail: `Login ${message}`,
       });
+    }
+    if (status == 'error') {
+      this.messageService.add({
+        severity: 'error',
+        detail: `${message}`,
+      });
+    }
+  }
+
+  submit() {
+    this.isSubmitted = true;
+    if (this.forgetForm.invalid) {
+      this.displayAlert();
+      return;
+    }
+    this.isLoading = true;
+    this._AuthApiService.forgotPassword(this.forgetForm.value).subscribe({
+      next: (res) => {
+        this.isLoading = false;
+        this.displayMessage(res.message, 'success');
+        this._router.navigate(['/auth/verify']);
+      },
+      error: (err) => {
+        this.isLoading = false;
+        this.displayMessage(err.error.message, 'error');
+      },
+    });
   }
 }

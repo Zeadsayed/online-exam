@@ -3,39 +3,64 @@
   <h3 class="mb-4 fw-bold">Sign Up</h3>
   <div class="group">
     <input type="text" id="inputtext" pInputText class="w-100" formControlName="username"
-      [ngClass]="{'ng-invalid': f['username'].invalid && f['username'].touched, ' ng-dirty' : f['username'].dirty}"
+      [ngClass]="{'ng-invalid ng-dirty': f['username'].invalid && (f['username'].touched || isSubmitted)}"
       placeholder="User Name">
+    <div *ngIf="(f['username'].touched || isSubmitted) && f['username'].invalid" class="text-danger">
+      <small *ngIf="f['username'].errors?.['required']" class="p-error block">User Name is required.</small>
+    </div>
 
-    <input type="text" id="inputtext" pInputText class="w-100 my-3" formControlName="firstName"
-      [ngClass]="{'ng-invalid': f['firstName'].invalid && f['firstName'].touched, ' ng-dirty' : f['firstName'].dirty}"
-      placeholder="First Name">
+    <div class="my-3">
+      <input type="text" id="inputtext" pInputText class="w-100" formControlName="firstName"
+        [ngClass]="{'ng-invalid ng-dirty': f['firstName'].invalid && (f['firstName'].touched || isSubmitted)}"
+        placeholder="First Name">
+      <div *ngIf="(f['firstName'].touched || isSubmitted) && f['firstName'].invalid" class="text-danger">
+        <small *ngIf="f['firstName'].errors?.['required']" class="p-error block">First Name is required.</small>
+      </div>
+    </div>
 
     <input type="text" id="inputtext" pInputText class="w-100" formControlName="lastName"
-      [ngClass]="{'ng-invalid': f['lastName'].invalid && f['lastName'].touched, ' ng-dirty' : f['lastName'].dirty}"
+      [ngClass]="{'ng-invalid ng-dirty': f['lastName'].invalid && (f['lastName'].touched || isSubmitted)}"
       placeholder="Last Name">
+    <div *ngIf="(f['lastName'].touched || isSubmitted) && f['lastName'].invalid" class="text-danger">
+      <small *ngIf="f['lastName'].errors?.['required']" class="p-error block">Last Name is required.</small>
+    </div>
 
-    <input type="email" id="inputtext" pInputText class="w-100 my-3" formControlName="email"
-      [ngClass]="{'ng-invalid': f['email'].invalid && f['email'].touched, ' ng-dirty' : f['email'].dirty}"
-      placeholder="Email">
+    <div class="my-3">
+      <input type="email" id="inputtext" pInputText class="w-100" formControlName="email"
+        [ngClass]="{'ng-invalid ng-dirty': f['email'].invalid && (f['email'].touched || isSubmitted)}"
+        placeholder="Email">
+      <div *ngIf="(f['email'].touched || isSubmitted) && f['email'].invalid" class="text-danger">
+        <small *ngIf="f['email'].errors?.['required']" class="p-error block">Email is required.</small>
+        <small *ngIf="f['email'].errors?.['email']" class="p-error block">Invalid email address.</small>
+      </div>
+    </div>
 
     <input type="text" id="inputtext" pInputText class="w-100" formControlName="phone"
-      [ngClass]="{'ng-invalid': f['phone'].invalid && f['phone'].touched, ' ng-dirty' : f['phone'].dirty}"
+      [ngClass]="{'ng-invalid ng-dirty': f['phone'].invalid && (f['phone'].touched || isSubmitted)}"
       placeholder="Phone">
+    <div *ngIf="(f['phone'].touched || isSubmitted) && f['phone'].invalid" class="text-danger">
+      <small *ngIf="f['phone'].errors?.['required']" class="p-error block">phone is required.</small>
+    </div>
 
-    <!-- <input type="password" pInputText class="w-100 mt-3" id="password" placeholder="Password"
-      [ngClass]="{'ng-invalid': f['password'].invalid && f['password'].touched, ' ng-dirty' : f['password'].dirty}"
-      formControlName="password"> -->
     <div class="my-3">
-      <p-password formControlName="password" [feedback]="false" [toggleMask]="true" placeholder="Password"
-        [ngClass]="{'ng-invalid': f['password'].invalid && f['password'].touched, ' ng-dirty' : f['password'].dirty}" />
+      <p-password class="pass" formControlName="password" [feedback]="false" [toggleMask]="true" placeholder="Password"
+        [ngClass]="{'ng-invalid ng-dirty': f['password'].invalid && (f['password'].touched || isSubmitted)}" />
+      <div *ngIf="(f['password'].touched || isSubmitted) && f['password'].invalid" class="text-danger">
+        <small *ngIf="f['password'].errors?.['required']" class="p-error block">Password is required.</small>
+        <small *ngIf="f['password'].errors?.['password']" class="p-error block">Invalid password .</small>
+      </div>
     </div>
-    <div class="my-3">
+    <div class="">
       <p-password formControlName="rePassword" [feedback]="false" [toggleMask]="true" placeholder="Confirm Password"
-        [ngClass]="{'ng-invalid': f['rePassword'].invalid && f['rePassword'].touched, ' ng-dirty' : f['rePassword'].dirty}" />
+        [ngClass]="{'ng-invalid ng-dirty': f['rePassword'].invalid && (f['rePassword'].touched || isSubmitted)}" />
+      <div *ngIf="(f['rePassword'].touched || isSubmitted) && f['rePassword'].invalid" class="text-danger">
+        <small *ngIf="f['rePassword'].errors?.['required']" class="p-error block">Password is required.</small>
+        <small *ngIf="f['rePassword'].errors?.['rePassword']" class="p-error block">Invalid Password </small>
+      </div>
+      <small *ngIf="f['rePassword'].touched && (f['rePassword'].value != f['password'].value)"
+        class="p-error block">Password Not Match</small>
     </div>
-    <!-- <input type="password" pInputText class="w-100 " id="password" placeholder="Confirm Password"
-      [ngClass]="{'ng-invalid': f['rePassword'].invalid && f['rePassword'].touched, ' ng-dirty' : f['rePassword'].dirty}"
-      formControlName="rePassword"> -->
+
   </div>
   <div class="mt-2 d-flex justify-content-end">
     <span>Already have an account? <a routerLink="/auth/login" class="text-decoration-none">Login</a></span>
