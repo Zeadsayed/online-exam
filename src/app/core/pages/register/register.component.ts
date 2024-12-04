@@ -14,6 +14,7 @@ import { Router, RouterLink } from '@angular/router';
 import { ToastModule } from 'primeng/toast';
 import { CommonModule } from '@angular/common';
 import { PasswordModule } from 'primeng/password';
+import { ToastService } from '../../../shared/services/toast.service';
 
 @Component({
   selector: 'app-register',
@@ -35,6 +36,7 @@ import { PasswordModule } from 'primeng/password';
 export class RegisterComponent {
   private _AuthApiService = inject(AuthApiService);
   private _router = inject(Router);
+  private _toastService = inject(ToastService);
 
   isLoading: boolean = false;
   isSubmitted: boolean = false;
@@ -70,44 +72,23 @@ export class RegisterComponent {
     return this.registerForm.controls;
   }
 
-  displayAlert() {
-    this.messageService.add({
-      severity: 'info',
-      detail: `Please Fill Form`,
-    });
-  }
-
-  displayMessage(message: string, status: string) {
-    if (status == 'success') {
-      this.messageService.add({
-        severity: 'success',
-        detail: `Created ${message}`,
-      });
-    }
-    if (status == 'error') {
-      this.messageService.add({
-        severity: 'error',
-        detail: `${message}`,
-      });
-    }
-  }
-
   register() {
     this.isSubmitted = true;
     if (this.registerForm.invalid) {
-      this.displayAlert();
+      this._toastService.showToast('Please Fill Form', 'warn');
       return;
     }
     this.isLoading = true;
     this._AuthApiService.register(this.registerForm.value).subscribe({
-      next: (res) => {
+      next: () => {
         this.isLoading = false;
-        this.displayMessage(res.message, 'success');
+        this._toastService.showToast('Created Successfully', 'success');
+
         this._router.navigate(['/auth/login']);
       },
       error: (err) => {
         this.isLoading = false;
-        this.displayMessage(err.error.message, 'error');
+        this._toastService.showToast(err.error.message, 'error');
       },
     });
   }

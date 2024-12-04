@@ -14,6 +14,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { ToastModule } from 'primeng/toast';
 import { MainBtnComponent } from '../../../shared/components/ui/main-btn/main-btn.component';
+import { ToastService } from '../../../shared/services/toast.service';
 
 @Component({
   selector: 'app-verify',
@@ -35,6 +36,7 @@ import { MainBtnComponent } from '../../../shared/components/ui/main-btn/main-bt
 export class VerifyComponent {
   private _AuthApiService = inject(AuthApiService);
   private _router = inject(Router);
+  private _toastService = inject(ToastService);
 
   isLoading: boolean = false;
   isSubmitted: boolean = false;
@@ -48,44 +50,23 @@ export class VerifyComponent {
   get f() {
     return this.verifyForm.controls;
   }
-  displayAlert() {
-    this.messageService.add({
-      severity: 'info',
-      detail: `Please Fill Form`,
-    });
-  }
-
-  displayMessage(message: string, status: string) {
-    if (status == 'success') {
-      this.messageService.add({
-        severity: 'success',
-        detail: `Login ${message}`,
-      });
-    }
-    if (status == 'error') {
-      this.messageService.add({
-        severity: 'error',
-        detail: `${message}`,
-      });
-    }
-  }
 
   submit() {
     this.isSubmitted = true;
     if (this.verifyForm.invalid) {
-      this.displayAlert();
+      this._toastService.showToast('Please Fill Form', 'warn');
       return;
     }
     this.isLoading = true;
     this._AuthApiService.verify(this.verifyForm.value).subscribe({
-      next: (res) => {
+      next: () => {
         this.isLoading = false;
-        this.displayMessage(res.message, 'success');
+        this._toastService.showToast('Verified', 'success');
         this._router.navigate(['/auth/reset-password']);
       },
       error: (err) => {
         this.isLoading = false;
-        this.displayMessage(err.error.message, 'error');
+        this._toastService.showToast(err.error.message, 'error');
       },
     });
   }

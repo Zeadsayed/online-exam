@@ -1,4 +1,5 @@
 <div class="container vh-100 d-flex align-items-center justify-content-center">
-  <p-toast position="top-center" key="tc"></p-toast>
+  <p-toast position="top-center" [showTransitionOptions]="'500ms'" [hideTransitionOptions]="'1000ms'"
+    [showTransformOptions]="'translatey(-100%)'"></p-toast>
   <router-outlet></router-outlet>
 </div>

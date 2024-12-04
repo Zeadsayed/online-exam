@@ -8,10 +8,11 @@ export class ToastService {
   constructor(private messageService: MessageService) {}
 
   showToast(message: string, type: string) {
+    this.messageService.clear();
     this.messageService.add({
       severity: type,
-      summary: 'Success',
       detail: message,
+      life: 8000,
     });
   }
 }

@@ -14,6 +14,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { ToastModule } from 'primeng/toast';
 import { MainBtnComponent } from '../../../shared/components/ui/main-btn/main-btn.component';
+import { ToastService } from '../../../shared/services/toast.service';
 
 @Component({
   selector: 'app-set-password',
@@ -34,6 +35,7 @@ import { MainBtnComponent } from '../../../shared/components/ui/main-btn/main-bt
 export class SetPasswordComponent {
   private _AuthApiService = inject(AuthApiService);
   private _router = inject(Router);
+  private _toastService = inject(ToastService);
 
   isLoading: boolean = false;
   isSubmitted: boolean = false;
@@ -47,36 +49,23 @@ export class SetPasswordComponent {
   get f() {
     return this.resetForm.controls;
   }
-
-  displayMessage(message: string) {
-    this.messageService.add({
-      severity: 'success',
-      detail: `${message}`,
-    });
-  }
-
-  displayAlert() {
-    this.messageService.add({
-      severity: 'info',
-      detail: `Please Fill Form`,
-    });
-  }
-
   reset() {
     this.isSubmitted = true;
     if (this.resetForm.invalid) {
-      this.displayAlert();
+      this._toastService.showToast('Please Fill Form', 'warn');
       return;
     }
     this.isLoading = true;
-    this._AuthApiService
-      .resetPassword(this.resetForm.value)
-      .subscribe((res) => {
-        console.log(res);
+    this._AuthApiService.resetPassword(this.resetForm.value).subscribe({
+      next: () => {
         this.isLoading = false;
-        this.isSubmitted = false;
-        this.displayMessage(res.info);
+        this._toastService.showToast('CHanged Successfully', 'success');
         this._router.navigate(['/auth/login']);
-      });
+      },
+      error: (err) => {
+        this.isLoading = false;
+        this._toastService.showToast(err.error.message, 'error');
+      },
+    });
   }
 }

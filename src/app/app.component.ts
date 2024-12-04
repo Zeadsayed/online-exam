@@ -2,19 +2,14 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
-interface City {
-  name: string;
-  code: string;
-}
+
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, ToastModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  providers: [MessageService],
 })
 export class AppComponent {
   title = 'online-exam';
-  ngOnInit() {}
 }
