@@ -1,0 +1,147 @@
+{
+  "configVersion": 1,
+  "timestamp": 1733396258086,
+  "index": "/online-exam/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/online-exam/chunk-2CH3SDGS.js",
+        "/online-exam/chunk-2DU57IS5.js",
+        "/online-exam/chunk-3GDVZARB.js",
+        "/online-exam/chunk-6KZ5TKHJ.js",
+        "/online-exam/chunk-AG2FBA76.js",
+        "/online-exam/chunk-BVPYWZ2A.js",
+        "/online-exam/chunk-D6GV4WKX.js",
+        "/online-exam/chunk-DCERTMSW.js",
+        "/online-exam/chunk-H63QLBFA.js",
+        "/online-exam/chunk-IBPFZHFE.js",
+        "/online-exam/chunk-LT4NTUAE.js",
+        "/online-exam/chunk-MQ2HQP63.js",
+        "/online-exam/chunk-OIVN5BXV.js",
+        "/online-exam/chunk-PEONLE7D.js",
+        "/online-exam/chunk-SEGRH3AH.js",
+        "/online-exam/chunk-U7TUTN4L.js",
+        "/online-exam/favicon.ico",
+        "/online-exam/index.html",
+        "/online-exam/main-JJGLDL7V.js",
+        "/online-exam/manifest.webmanifest",
+        "/online-exam/polyfills-FFHMD2TL.js",
+        "/online-exam/scripts-EEEIPNC3.js",
+        "/online-exam/styles-AJRXDV7N.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/online-exam/assets/icons/icon-128x128.png",
+        "/online-exam/assets/icons/icon-144x144.png",
+        "/online-exam/assets/icons/icon-152x152.png",
+        "/online-exam/assets/icons/icon-192x192.png",
+        "/online-exam/assets/icons/icon-384x384.png",
+        "/online-exam/assets/icons/icon-512x512.png",
+        "/online-exam/assets/icons/icon-72x72.png",
+        "/online-exam/assets/icons/icon-96x96.png",
+        "/online-exam/assets/images/Auth/bro.png",
+        "/online-exam/media/Inter-italic.var-YRHKCDAA.woff2",
+        "/online-exam/media/Inter-roman.var-5VGNBR6A.woff2",
+        "/online-exam/media/color-727V6BA6.png",
+        "/online-exam/media/fa-brands-400-6PJPV6JM.woff2",
+        "/online-exam/media/fa-brands-400-KOKGDU7E.ttf",
+        "/online-exam/media/fa-regular-400-IPMAEX5Y.ttf",
+        "/online-exam/media/fa-regular-400-OHB6J4OK.woff2",
+        "/online-exam/media/fa-solid-900-ABTK6BNK.woff2",
+        "/online-exam/media/fa-solid-900-SRFFQLRM.ttf",
+        "/online-exam/media/fa-v4compatibility-IKJ25ERE.woff2",
+        "/online-exam/media/fa-v4compatibility-XNVJFBGO.ttf",
+        "/online-exam/media/hue-3YTJE6JS.png",
+        "/online-exam/media/primeicons-4GST5W3O.woff2",
+        "/online-exam/media/primeicons-DHQU4SEP.svg",
+        "/online-exam/media/primeicons-GEFHGEHP.ttf",
+        "/online-exam/media/primeicons-P53SE5CV.woff"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/online-exam/assets/icons/icon-128x128.png": "f912963bdc6d5a38d8f1dd0afbaab2ce8d657acb",
+    "/online-exam/assets/icons/icon-144x144.png": "b155fd5f2fd5d2ea7760721063003c4cd95fd783",
+    "/online-exam/assets/icons/icon-152x152.png": "eae6e0f0c8afb8aaae339e2a569b43e9238e5e6c",
+    "/online-exam/assets/icons/icon-192x192.png": "15c4180454633880d98674aa7394656196c91584",
+    "/online-exam/assets/icons/icon-384x384.png": "94a915751ef6c9282df9aea405ad679230631814",
+    "/online-exam/assets/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
+    "/online-exam/assets/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
+    "/online-exam/assets/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
+    "/online-exam/assets/images/Auth/bro.png": "26fb1eeb6d4978b9f5c1a1abf053ef65300a8961",
+    "/online-exam/chunk-2CH3SDGS.js": "5135a9622646c67d5f4cb526e56f484896d3f217",
+    "/online-exam/chunk-2DU57IS5.js": "b47555ae00e9add3d240ffaf514b046c94ca10c4",
+    "/online-exam/chunk-3GDVZARB.js": "10e1a145f5104498e3a7b311cece2c48f9d58814",
+    "/online-exam/chunk-6KZ5TKHJ.js": "2f168f05420e5fd7392fc4d7892ee1c9b0ab47e3",
+    "/online-exam/chunk-AG2FBA76.js": "ab889c10310e9f57fab9ce1dd34a59ff42f8ec97",
+    "/online-exam/chunk-BVPYWZ2A.js": "78338721aeac98bc31a36536b88029dca19e9689",
+    "/online-exam/chunk-D6GV4WKX.js": "d6c1788e079d5cba3c5f38355c02f80cdc5d0824",
+    "/online-exam/chunk-DCERTMSW.js": "b7d80ebdfb5eb096e58679a47b80190ef38f5f6e",
+    "/online-exam/chunk-H63QLBFA.js": "e07460a868b4077685b730853db1cf8a7b249a21",
+    "/online-exam/chunk-IBPFZHFE.js": "5eb8e41310c82c86a01fba65e28b848801a11fa9",
+    "/online-exam/chunk-LT4NTUAE.js": "ceabfe94f8b09de56f52b24b1ecbf859c785a8ab",
+    "/online-exam/chunk-MQ2HQP63.js": "7f2a8e0d8cc7be545ac4c9fa741650227ee46de0",
+    "/online-exam/chunk-OIVN5BXV.js": "3aed4bc18677fe6e74af7ec753b83ff348cd188d",
+    "/online-exam/chunk-PEONLE7D.js": "5a66011e92f6c73c94d066597e2a5316b1f663f4",
+    "/online-exam/chunk-SEGRH3AH.js": "9b6833e1dfa7c1a3f18eae1765ba1b989e2e9738",
+    "/online-exam/chunk-U7TUTN4L.js": "9462fed9750c1c6e4ae9a4becffc9040a31ae34c",
+    "/online-exam/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
+    "/online-exam/index.html": "f47fd1fd060871a32fa6f7c0e0fab3e815250db6",
+    "/online-exam/main-JJGLDL7V.js": "fffae3efc3227af21cb469a57c774c1c5dc1f041",
+    "/online-exam/manifest.webmanifest": "a76f138f087127d7407bdb4d38b97868615c34df",
+    "/online-exam/media/Inter-italic.var-YRHKCDAA.woff2": "9995712e0ca3cda14c7d6014abe0f979cf57ec53",
+    "/online-exam/media/Inter-roman.var-5VGNBR6A.woff2": "d56a83c1e298702010cde038317713aaef23fe6c",
+    "/online-exam/media/color-727V6BA6.png": "c54e4eac0b6c88b9da8cfdf00b1d9093b828286b",
+    "/online-exam/media/fa-brands-400-6PJPV6JM.woff2": "16472cfa843716fe7b6b4ebbe267cfb3d06a701c",
+    "/online-exam/media/fa-brands-400-KOKGDU7E.ttf": "2b1ae3e772246bb83c004c497cf4fe63f2d492b4",
+    "/online-exam/media/fa-regular-400-IPMAEX5Y.ttf": "5610aeb166fbea54a48dc49853b76c7cf56921c1",
+    "/online-exam/media/fa-regular-400-OHB6J4OK.woff2": "3c727ff1af5625c9095d2cb6566f9e0a4fbc2b8d",
+    "/online-exam/media/fa-solid-900-ABTK6BNK.woff2": "1b3b218d84feb031d8adcc70742c80b625cba4ed",
+    "/online-exam/media/fa-solid-900-SRFFQLRM.ttf": "1837d43170865d40a1a6d319c4f5680996ca201b",
+    "/online-exam/media/fa-v4compatibility-IKJ25ERE.woff2": "8334af24ec849d884746e8339be8a1620c099132",
+    "/online-exam/media/fa-v4compatibility-XNVJFBGO.ttf": "da88c73a440cc7e092318ac18feade3e09bb4d17",
+    "/online-exam/media/hue-3YTJE6JS.png": "ec215387067c733aed6649b96d8a81798a58b21b",
+    "/online-exam/media/primeicons-4GST5W3O.woff2": "837c1279b6af9d297f34fdb43e6fcc9206a79f32",
+    "/online-exam/media/primeicons-DHQU4SEP.svg": "a07ae39027c1a780b42fd82fad7575c2924d9d28",
+    "/online-exam/media/primeicons-GEFHGEHP.ttf": "3b878ca7e88945a8ec25814810b95367d8977ae6",
+    "/online-exam/media/primeicons-P53SE5CV.woff": "361e3af71bb4e515feead2f787348a92a5527158",
+    "/online-exam/polyfills-FFHMD2TL.js": "f49b49a155bc7d192db62a4c15d0a612b460a667",
+    "/online-exam/scripts-EEEIPNC3.js": "2318ded8c885787a1645385a82c1ca883c359034",
+    "/online-exam/styles-AJRXDV7N.css": "8d0f75b73805ec38b3b8a9563af5b798a2adc015"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
