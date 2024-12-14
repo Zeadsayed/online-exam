@@ -1,0 +1,15 @@
+<div class="container">
+    <!-- Sidebar -->
+    <div [class.expanded]="isSidebarExpanded" class="sidebar">
+        <div class="logo">
+            <img src="../../../../assets/images/Dashboard/logo.png" alt="">
+        </div>
+        <p-panelMenu [model]="menuItems"></p-panelMenu>
+    </div>
+
+    <!-- Toggle Button -->
+    <button class="toggle-button" (click)="toggleSidebar()">
+        <i class="pi" [ngClass]="isSidebarExpanded ? 'pi-times' : 'pi-bars'"></i>
+    </button>
+
+</div>

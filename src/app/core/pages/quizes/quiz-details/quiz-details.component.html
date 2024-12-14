@@ -1,0 +1,14 @@
+<div class="profile bg-white rounded-4 p-3">
+    <p class="title">Quizes</p>
+
+    <div class="row">
+        @for (quiz of subjects; track quiz) {
+        <div class="col-md-4">
+            <div class="">
+                <img [src]="quiz.icon" class="w-100">
+                <p>{{quiz.name}}</p>
+            </div>
+        </div>
+        }
+    </div>
+</div>

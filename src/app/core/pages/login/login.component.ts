@@ -13,6 +13,7 @@ import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { PasswordModule } from 'primeng/password';
 import { ToastService } from '../../../shared/services/toast.service';
+import { localStorageKeys } from '../../../shared/models/localStorageKeys';
 
 @Component({
   selector: 'app-login',
@@ -59,9 +60,10 @@ export class LoginComponent {
 
     this.isLoading = true;
     this._AuthApiService.login(this.loginForm.value).subscribe({
-      next: () => {
+      next: (res) => {
         this.isLoading = false;
         this._toastService.showToast('login successfully', 'success');
+        localStorage.setItem(localStorageKeys.token, res.token);
         this._router.navigate(['/home']);
       },
       error: (err) => {

@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="top-bar">
+        <!-- Search Input -->
+        <div class="search-container">
+            <button class="search-button">
+                <i class="pi pi-search"></i> <!-- PrimeNG search icon -->
+            </button>
+            <input type="text" placeholder="Search..." class="search-input" />
+        </div>
+
+        <div class="d-flex align-items-center">
+            <app-main-btn [text]="'Start Quiz'" [classes]="'rounded-3 px-5 d-none d-sm-block'"
+                [type]="'button'"></app-main-btn>
+            <!-- User Profile -->
+            <div class="user-profile ms-3">
+                <img src="../../../../assets/images/Dashboard/hero.png" alt="User" class="user-image" />
+            </div>
+        </div>
+    </div>
+</div>

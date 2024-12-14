@@ -39,6 +39,11 @@ export class AuthApiService implements AuthAPI {
       .pipe(map((res: any) => this._AuthRegisterAPIAdapter.adapt(res)));
   }
 
+  logOut(): Observable<any> {
+    const api = `${AuthEndpoint.LOG_OUT}`;
+    return this._http.get(api);
+  }
+
   forgotPassword(data: any): Observable<any> {
     const api = `${AuthEndpoint.FORGOT_PASSWORD}`;
     return this._http.post(api, data);
