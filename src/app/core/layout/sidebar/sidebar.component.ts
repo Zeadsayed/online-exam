@@ -34,7 +34,7 @@ export class SidebarComponent {
     {
       label: 'Log Out',
       icon: 'pi pi-sign-out',
-      // command: () => this.logOut(),
+      command: () => this.logOut(),
     },
   ];
 
@@ -43,8 +43,13 @@ export class SidebarComponent {
   }
 
   logOut() {
-    this._AuthApiService.logOut().subscribe((res) => {
-      console.log(res);
+    this._confirmationService.confirm({
+      message: 'Are you sure that you want to perform this action?',
+      accept: () => {
+        this._AuthApiService.logOut().subscribe((res) => {
+          this._toastService.showToast('Logout Success', 'info');
+        });
+      },
     });
   }
 

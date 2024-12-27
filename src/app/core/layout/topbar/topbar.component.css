@@ -11,7 +11,7 @@
     position: fixed;
     top: 0;
     left: 250px;
-    /* z-index: 1000; */
+    z-index: 1000;
 
     .search-container {
       display: flex;

@@ -1,0 +1,35 @@
+<div class="d-flex justify-content-center" *ngIf="uiState.isLoading">
+    <p-progressSpinner></p-progressSpinner>
+</div>
+
+
+<div class="row" *ngIf="!uiState.isLoading">
+    @for(exam of exams ; track exam._id){
+    <div class="col-md-12 exam mb-3">
+        <div class="title">
+            <p class="fw-medium mb-1">{{exam.title}}</p>
+            <span class="text-muted">{{exam.numberOfQuestions}} Question</span>
+        </div>
+        <div>
+            <p class="fw-normal mb-1">{{exam.duration}} Minutes</p>
+            <app-main-btn [text]="'Start'" [classes]="'rounded-4 w-100 p-0'" [type]="'submit'"
+                (clickEmitter)="openExam(exam._id)"></app-main-btn>
+        </div>
+    </div>
+    }
+
+    @if(exams.length ==0){
+    <div class="col-md-12 exam justify-content-center">
+        <p class="m-0 fw-medium d-flex align-items-center">
+            <i class="pi pi-exclamation-circle text-warning mx-2" style="font-size: 2rem"></i>
+            Sorry There is no Quizes for this category
+        </p>
+    </div>
+    }
+
+</div>
+
+
+<app-instructions (start)="startExam()" [isVisible]="uiState.isVisible"></app-instructions>
+<app-exam *ngIf="uiState.isExamVisible" [questions]="questions" [duration]="examDuration"
+    [visible]="uiState.isExamVisible"></app-exam>

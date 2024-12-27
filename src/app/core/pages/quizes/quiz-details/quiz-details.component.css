@@ -1,4 +1,29 @@
+.content {
+  cursor: pointer;
+  border-radius: 15px;
+  overflow: hidden;
+  img {
+    scale: 1;
+    transition: scale 0.4s ease-in-out;
+    &:hover {
+      scale: 1.05;
+    }
+  }
+}
 .title {
   color: var(--main-color);
   font-weight: 500;
+}
+
+.name {
+  display: flex;
+  position: absolute;
+  bottom: 20px;
+  color: #fff;
+
+  backdrop-filter: blur(4px) saturate(161%);
+  -webkit-backdrop-filter: blur(4px) saturate(161%);
+  background-color: #1935ca66;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
 }

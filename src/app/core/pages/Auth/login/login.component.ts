@@ -8,12 +8,12 @@ import {
 } from '@angular/forms';
 import { AuthApiService } from 'auth-api';
 import { InputTextModule } from 'primeng/inputtext';
-import { MainBtnComponent } from '../../../shared/components/ui/main-btn/main-btn.component';
+import { MainBtnComponent } from '../../../../shared/components/ui/main-btn/main-btn.component';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { PasswordModule } from 'primeng/password';
-import { ToastService } from '../../../shared/services/toast.service';
-import { localStorageKeys } from '../../../shared/models/localStorageKeys';
+import { ToastService } from '../../../../shared/services/toast.service';
+import { localStorageKeys } from '../../../../shared/models/localStorageKeys';
 
 @Component({
   selector: 'app-login',

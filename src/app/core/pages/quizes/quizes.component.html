@@ -1,15 +1,16 @@
-<div class="main">
-    <div class="profile bg-white rounded-4 p-4 mb-3">
-        <div class="d-flex align-items-center">
-            <div class="img">
-                <img src="../../../../assets/images/Dashboard/hero.png" alt="User" class="user-image" />
-            </div>
-            <div class="details mx-3">
-                <h2>zead sayed</h2>
-                <span>Voluptatem aut</span>
-            </div>
+<div class="profile bg-white rounded-4 p-4 mb-3">
+    <div class="d-flex align-items-center">
+        <div class="img">
+            <img src="../../../../assets/images/Dashboard/hero.png" alt="User" class="user-image" />
+        </div>
+        <div class="details mx-3">
+            <h2>zead sayed</h2>
+            <span>Voluptatem aut</span>
         </div>
     </div>
-
-    <app-quiz-details [subjects]="subjects"></app-quiz-details>
 </div>
+
+<div class="d-flex justify-content-center">
+    <p-progressSpinner *ngIf="uiState.isLoading"></p-progressSpinner>
+</div>
+<app-quiz-details [subjects]="subjects" *ngIf="!uiState.isLoading"></app-quiz-details>

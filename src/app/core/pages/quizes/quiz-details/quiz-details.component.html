@@ -2,11 +2,13 @@
     <p class="title">Quizes</p>
 
     <div class="row">
-        @for (quiz of subjects; track quiz) {
-        <div class="col-md-4">
-            <div class="">
+        @for (quiz of subjects; track quiz ) {
+        <div class="col-md-4 mb-3 content" (click)="getExams(quiz._id)">
+            <div class="position-relative d-flex justify-content-center">
                 <img [src]="quiz.icon" class="w-100">
-                <p>{{quiz.name}}</p>
+                <div class="name p-3 px-4">
+                    <p class="m-0">{{quiz.name}}</p>
+                </div>
             </div>
         </div>
         }

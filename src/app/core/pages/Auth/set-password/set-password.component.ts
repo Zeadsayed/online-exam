@@ -13,8 +13,8 @@ import { MessageService } from 'primeng/api';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { ToastModule } from 'primeng/toast';
-import { MainBtnComponent } from '../../../shared/components/ui/main-btn/main-btn.component';
-import { ToastService } from '../../../shared/services/toast.service';
+import { MainBtnComponent } from '../../../../shared/components/ui/main-btn/main-btn.component';
+import { ToastService } from '../../../../shared/services/toast.service';
 
 @Component({
   selector: 'app-set-password',

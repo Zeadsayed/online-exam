@@ -1,68 +1,66 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import {
+  FormControl,
+  FormGroup,
   FormsModule,
   ReactiveFormsModule,
-  FormGroup,
-  FormControl,
   Validators,
 } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
 import { AuthApiService } from 'auth-api';
 import { MessageService } from 'primeng/api';
 import { InputTextModule } from 'primeng/inputtext';
-import { PasswordModule } from 'primeng/password';
 import { ToastModule } from 'primeng/toast';
-import { MainBtnComponent } from '../../../shared/components/ui/main-btn/main-btn.component';
-import { ToastService } from '../../../shared/services/toast.service';
+import { MainBtnComponent } from '../../../../shared/components/ui/main-btn/main-btn.component';
+import { Router } from '@angular/router';
+import { ToastService } from '../../../../shared/services/toast.service';
 
 @Component({
-  selector: 'app-verify',
+  selector: 'app-forget-password',
   standalone: true,
   imports: [
     FormsModule,
     ReactiveFormsModule,
     InputTextModule,
     MainBtnComponent,
-    RouterLink,
     ToastModule,
     CommonModule,
-    PasswordModule,
   ],
-  templateUrl: './verify.component.html',
-  styleUrl: './verify.component.css',
+  templateUrl: './forget-password.component.html',
+  styleUrl: './forget-password.component.css',
   providers: [MessageService],
 })
-export class VerifyComponent {
+export class ForgetPasswordComponent {
   private _AuthApiService = inject(AuthApiService);
   private _router = inject(Router);
   private _toastService = inject(ToastService);
 
   isLoading: boolean = false;
   isSubmitted: boolean = false;
-
   constructor(private messageService: MessageService) {}
 
-  verifyForm: FormGroup = new FormGroup({
-    resetCode: new FormControl(null, [Validators.required]),
+  forgetForm: FormGroup = new FormGroup({
+    email: new FormControl(null, [Validators.required, Validators.email]),
   });
 
   get f() {
-    return this.verifyForm.controls;
+    return this.forgetForm.controls;
   }
 
   submit() {
     this.isSubmitted = true;
-    if (this.verifyForm.invalid) {
+
+    if (this.forgetForm.invalid) {
       this._toastService.showToast('Please Fill Form', 'warn');
       return;
     }
+
     this.isLoading = true;
-    this._AuthApiService.verify(this.verifyForm.value).subscribe({
+    this._AuthApiService.forgotPassword(this.forgetForm.value).subscribe({
       next: () => {
         this.isLoading = false;
-        this._toastService.showToast('Verified', 'success');
-        this._router.navigate(['/auth/reset-password']);
+        this._toastService.showToast('Code is Sent Successfully', 'success');
+        this._router.navigate(['/auth/verify']);
       },
       error: (err) => {
         this.isLoading = false;

@@ -13,6 +13,7 @@ export class MainBtnComponent {
   @Input() classes = '';
   @Input() type = 'button';
   @Input() isLoading = false;
+  @Input() condition = false;
 
   @Output() clickEmitter: EventEmitter<any> = new EventEmitter<any>();
 

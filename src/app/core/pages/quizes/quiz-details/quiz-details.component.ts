@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quiz-details',
@@ -9,8 +10,10 @@ import { Component, Input } from '@angular/core';
 })
 export class QuizDetailsComponent {
   @Input() subjects!: any[];
+  router = inject(Router);
+  ngOnInit() {}
 
-  ngOnInit() {
-    console.log(this.subjects);
+  getExams(id: string) {
+    this.router.navigate(['/subjects', id]);
   }
 }
