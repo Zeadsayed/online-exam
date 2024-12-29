@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 import { PasswordModule } from 'primeng/password';
 import { ToastService } from '../../../../shared/services/toast.service';
 import { localStorageKeys } from '../../../../shared/models/localStorageKeys';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -27,6 +28,7 @@ import { localStorageKeys } from '../../../../shared/models/localStorageKeys';
     CommonModule,
     PasswordModule,
   ],
+  providers: [CookieService],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
@@ -34,6 +36,7 @@ export class LoginComponent {
   private _AuthApiService = inject(AuthApiService);
   private _toastService = inject(ToastService);
   private _router = inject(Router);
+  private _cookieService = inject(CookieService);
 
   isLoading: boolean = false;
   isSubmitted: boolean = false;
@@ -63,7 +66,12 @@ export class LoginComponent {
       next: (res) => {
         this.isLoading = false;
         this._toastService.showToast('login successfully', 'success');
-        localStorage.setItem(localStorageKeys.token, res.token);
+        // localStorage.setItem(localStorageKeys.token, res.token);
+        this._cookieService.set('auth_token', res.token, {
+          expires: 7,
+          secure: true,
+          path: '/',
+        });
         this._router.navigate(['/home']);
       },
       error: (err) => {
